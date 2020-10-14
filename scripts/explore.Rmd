@@ -1,0 +1,28 @@
+---
+title: "mapping-inequality"
+output: github_document
+---
+
+```{r}
+library(tidyverse)
+library(sf)
+```
+
+mapping inequality
+```{r}
+tmp <- tempfile()
+download.file("https://dsl.richmond.edu/panorama/redlining/static/fullshpfile.zip", tmp)
+unzip(tmp)
+```
+
+download state data
+```{r}
+tmp <- tempfile()
+download.file("https://data.ca.gov/dataset/e212e397-1277-4df3-8c22-40721b095f33/resource/b0007416-a325-4777-9295-368ea6b710e6/download/ca-county-boundaries.zip", tmp) 
+unzip(tmp)
+```
+
+read in redlining data
+```{r}
+holc <- st_read("fullshpfile/shapefile/holc_ad_data.shp")
+```
